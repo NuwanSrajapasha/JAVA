@@ -1,66 +1,47 @@
 import javax.swing.*;
 import java.awt.*;
-class DLayout extends JFrame{
-    JButton btnNorth,btnSouth,btnWest,btnEast,btn1,btn2,btn3,btn4;
 
-    DLayout(){
-        setSize(500,400);
-        setTitle("JPanel is a Container");
-        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+class Calculator extends JFrame {
 
-        Font font=new Font("null",1,25);
+    JButton[] btnArr;
+    JTextField textField;
 
-        setLayout(new BorderLayout());
+    Calculator() {
+        setSize(400, 300);
+        setTitle("Calculator");
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setLayout(new BorderLayout()); 
 
-        btnNorth=new JButton("North");
-        btnNorth.setFont(font);
-        add("North",btnNorth);
+        Font font = new Font("null", Font.BOLD, 25);
 
-        btnSouth=new JButton("South");
-        btnSouth.setFont(font);
-        add("South",btnSouth);
+        // Add the text field at the top
+        textField = new JTextField();
+        textField.setFont(font);
+        textField.setHorizontalAlignment(JTextField.RIGHT); 
+        add(textField, BorderLayout.NORTH);
 
-        btnEast=new JButton("East");
-        btnEast.setFont(font);
-        add("East",btnEast);
+        // Create a panel for the buttons
+        JPanel buttonPanel = new JPanel();
+        buttonPanel.setLayout(new GridLayout(4, 4));
 
-        btnWest=new JButton("West");
-        btnWest.setFont(font);
-        add("West",btnWest);
+        String[] text = { "7", "8", "9", "*", "4", "5", "6", "/", "1", "2", "3", "+", "0", ".", "=", "-" };
+        btnArr = new JButton[16];
 
-        JPanel centerPanel=new JPanel();
-        centerPanel.setLayout(new GridLayout(2,2));
+        for (int i = 0; i < 16; i++) {
+            btnArr[i] = new JButton(text[i]);
+            btnArr[i].setFont(font);
+            buttonPanel.add(btnArr[i]);
+        }
 
-        btn1=new JButton("1");
-        btn1.setFont(font);
-        centerPanel.add(btn1);
-
-        btn2=new JButton("2");
-        btn2.setFont(font);
-        centerPanel.add(btn2);
-
-        btn3=new JButton("3");
-        btn3.setFont(font);
-        centerPanel.add(btn3);
-
-        btn4=new JButton("4");
-        btn4.setFont(font);
-        centerPanel.add(btn4);
-        
-        add("Center",centerPanel);
-
-
-
-
+        // Add the button panel to the center
+        add(buttonPanel, BorderLayout.CENTER);
 
         setVisible(true);
-
-
     }
+}
 
-}class Example{
+class Example {
     public static void main(String[] args) {
-        DLayout d1=new DLayout();
-        
+        Calculator c1 = new Calculator();
     }
 }
