@@ -1,45 +1,89 @@
 import javax.swing.*;
 import java.awt.*;
-class LAyout extends JFrame{
-    JButton btn1,thisbtn,btn2,exect;
 
-    LAyout(){
-        setSize(400,300);
-        setTitle("Flow Layout Window");
-        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-        
-        
+class GRid extends JFrame{
+    JButton btn7,btn8,btn9,btnstr,btn4,btn5,btn6,btndiv,btn1,btn2,btn3,btnadd,btn0,btnf,btneq,btnmi;
 
-        //Flow Layout
-        //Left alignment
-        setLayout(new FlowLayout((int) LEFT_ALIGNMENT));
+    GRid(){
+        setSize(500,300);
+        setTitle("Calculator");
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
-        Font font=new Font("null",1,25);
-        
-        btn1=new JButton("Button1");
+        //Grid Layout
+        setLayout(new GridLayout(4,4));
+
+        Font font=new Font("",1,25);
+
+        btn7=new JButton("7");
+        btn7.setFont(font);
+        add(btn7);
+
+        btn8=new JButton("8");
+        btn8.setFont(font);
+        add(btn8);
+
+        btn9=new JButton("9");
+        btn9.setFont(font);
+        add(btn9);
+
+        btnstr=new JButton("*");
+        btnstr.setFont(font);
+        add(btnstr);
+
+        btn4=new JButton("4");
+        btn4.setFont(font);
+        add(btn4);
+
+        btn5=new JButton("5");
+        btn5.setFont(font);
+        add(btn5);
+
+        btn6=new JButton("6");
+        btn6.setFont(font);
+        add(btn6);
+
+        btndiv=new JButton("/");
+        btndiv.setFont(font);
+        add(btndiv);
+
+        btn1=new JButton("1");
         btn1.setFont(font);
-        add("Button1",btn1);
+        add(btn1);
 
-        thisbtn=new JButton("This is abutton");
-        thisbtn.setFont(font);
-        add("This is abutton",thisbtn);
-
-        btn2=new JButton("Button2");
+        btn2=new JButton("2");
         btn2.setFont(font);
-        add("Button2",btn2);
+        add(btn2);
 
-        exect=new JButton("Execute");
-        exect.setFont(font);
-        add("Execute",exect);
+        btn3=new JButton("3");
+        btn3.setFont(font);
+        add(btn3);
+
+        btnadd=new JButton("+");
+        btnadd.setFont(font);
+        add(btnadd);
+
+        btn0=new JButton("0");
+        btn0.setFont(font);
+        add(btn0);
+
+        btnf=new JButton(".");
+        btnf.setFont(font);
+        add(btnf);
+
+        btneq=new JButton("=");
+        btneq.setFont(font);
+        add(btneq);
+
+        btnmi=new JButton("-");
+        btnmi.setFont(font);
+        add(btnmi);
 
         setVisible(true);
-
     }
-     
-
-}class Example{
+}
+class Example{
     public static void main(String[] args) {
-        LAyout l1=new LAyout();
+        GRid g1=new GRid();
         
     }
 }
