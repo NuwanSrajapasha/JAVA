@@ -1,31 +1,45 @@
 import javax.swing.*;
 import java.awt.*;
+class LAyout extends JFrame{
+    JButton btn1,thisbtn,btn2,exect;
 
-public class BorderLayoutWindow {
-    public static void main(String[] args) {
-        // Create a JFrame with the title "Border Layout Window"
-        JFrame frame = new JFrame("Border Layout Window");
-
-        // Set the size of the window to 400x200
-        frame.setSize(400, 200);
-
-        // Command for the default close operation: Exit the JVM
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-        // Set the layout of the frame to BorderLayout
-        frame.setLayout(new BorderLayout());
-
-        // Create a JLabel for the north area
-        JLabel northLabel = new JLabel("This is the North Border", JLabel.CENTER);
+    LAyout(){
+        setSize(400,300);
+        setTitle("Flow Layout Window");
+        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         
-        // Create a JLabel for the south area
-        JLabel southLabel = new JLabel("This is the South Border", JLabel.CENTER);
+        
 
-        // Add the labels to the frame
-        frame.add(northLabel, BorderLayout.NORTH);
-        frame.add(southLabel, BorderLayout.SOUTH);
+        //Flow Layout
+        //Left alignment
+        setLayout(new FlowLayout((int) LEFT_ALIGNMENT));
 
-        // Make the frame visible
-        frame.setVisible(true);
+        Font font=new Font("null",1,25);
+        
+        btn1=new JButton("Button1");
+        btn1.setFont(font);
+        add("Button1",btn1);
+
+        thisbtn=new JButton("This is abutton");
+        thisbtn.setFont(font);
+        add("This is abutton",thisbtn);
+
+        btn2=new JButton("Button2");
+        btn2.setFont(font);
+        add("Button2",btn2);
+
+        exect=new JButton("Execute");
+        exect.setFont(font);
+        add("Execute",exect);
+
+        setVisible(true);
+
+    }
+     
+
+}class Example{
+    public static void main(String[] args) {
+        LAyout l1=new LAyout();
+        
     }
 }
