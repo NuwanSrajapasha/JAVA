@@ -1,37 +1,66 @@
 import javax.swing.*;
 import java.awt.*;
+class DLayout extends JFrame{
+    JButton btnNorth,btnSouth,btnWest,btnEast,btn1,btn2,btn3,btn4;
 
-class GRid extends JFrame{
-    JButton [] btnArr;
-
-    GRid(){
-        setSize(500,300);
-        setTitle("Calculator");
+    DLayout(){
+        setSize(500,400);
+        setTitle("JPanel is a Container");
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
-        //Grid Layout
-        setLayout(new GridLayout(4,4));
+        Font font=new Font("null",1,25);
 
-        Font font=new Font("",1,25);
+        setLayout(new BorderLayout());
 
+        btnNorth=new JButton("North");
+        btnNorth.setFont(font);
+        add("North",btnNorth);
 
-        String text[]={"7","8","9","*","4","5","6","/","1","2","3","+","0",".","=","-"};
-        btnArr=new JButton[16];
+        btnSouth=new JButton("South");
+        btnSouth.setFont(font);
+        add("South",btnSouth);
 
-        for(int i=0;i<16;i++){
-            btnArr[i]=new JButton(text[i]);
-            btnArr[i].setFont(font);
-            add(btnArr[i]);
+        btnEast=new JButton("East");
+        btnEast.setFont(font);
+        add("East",btnEast);
 
-            setVisible(true);
-        }
+        btnWest=new JButton("West");
+        btnWest.setFont(font);
+        add("West",btnWest);
 
+        JPanel centerPanel=new JPanel();
+        centerPanel.setLayout(new GridLayout(2,2));
+
+        btn1=new JButton("1");
+        btn1.setFont(font);
+        centerPanel.add(btn1);
+
+        btn2=new JButton("2");
+        btn2.setFont(font);
+        centerPanel.add(btn2);
+
+        btn3=new JButton("3");
+        btn3.setFont(font);
+        centerPanel.add(btn3);
+
+        btn4=new JButton("4");
+        btn4.setFont(font);
+        centerPanel.add(btn4);
         
+        add("Center",centerPanel);
+
+
+
+
+
+        setVisible(true);
+
+
     }
-}
-class Example{
+
+}class Example{
     public static void main(String[] args) {
-        GRid g1=new GRid();
+        DLayout d1=new DLayout();
         
     }
 }
